@@ -3,14 +3,14 @@
 env = System.getenv()
 
 def projects = [
-    domain              : 'git@github.com',
-    org                 : 'YOUR-ACCOUNT-HERE',// change this to your github account
-    name                : "hello-world-k8s",  // git repo name
+    domain              : "git@github.com",
+    org                 : "YOUR-ACCOUNT-HERE",// change this to your github account
+    name                : "demo-api",         // git repo name
     jobName             : "hello-world",      // jenkins job name
     branch              : "master",
     jenkinsfile         : "Jenkinsfile",
     pollTrigger         : "",
-    cronTrigger         : ""
+    cronTrigger         : "",
     depth               : 1,
     environmentWhitelist: [],
     image               : "latest",
