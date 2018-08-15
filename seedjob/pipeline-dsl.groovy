@@ -3,6 +3,7 @@
 env = System.getenv()
 
 def projects = [
+  [
     domain              : "git@github.com",
     org                 : "YOUR-ACCOUNT-HERE",// change this to your github account
     name                : "demo-api",         // git repo name
@@ -22,6 +23,7 @@ def projects = [
         "hudson.model.Item.Delete:Developer",
         "hudson.model.Item.Read:Developer"
     ]
+  ]
 ]
 
 print "\n\nProjects:\n\n${projects}\n\n"
@@ -53,6 +55,7 @@ def isLocalFilePath(path) {
 }
 
 def getJobName(project) {
+  print "\n\nProjects:\n\n${projects}\n\n"
 //  if (isLocalFilePath(project.localPathOverride)) {
 //    return project.localPathOverride.split('/').last()
 //  }
