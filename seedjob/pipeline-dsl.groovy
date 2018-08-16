@@ -16,7 +16,6 @@ def projects = [
     environmentWhitelist: [],
     image               : "latest",
     disabled            : false,
-    jobParameters       : {},
     permissions         : [
         "hudson.model.Item.Build:Developer",
         "hudson.model.Item.Cancel:Developer",
@@ -131,7 +130,6 @@ defaultListColumns = {
   lastDuration()
   lastBuildConsole()
   progressBar()
-  buildParameters()
   buildButton()
 }
 
@@ -214,17 +212,6 @@ projects.each { project ->
     }
   }
 
-//        https://jenkinsci.github.io/job-dsl-plugin/#path/pipelineJob-parameters
-  pipelineJobParametersDefault = {
-    stringParam('IMAGE_VERSION', "${project.image}", 'Docker Container Code Version')
-  }
-
-  pipelineJobParametersBuild = {
-    choiceParam('START_AT_STAGE', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 'Start at stage')
-  }
-
-  pipelineJobParametersCustom = project.jobParameters
-
   scmParameters = {
     git {
       remote {
@@ -242,7 +229,6 @@ projects.each { project ->
   pipelineJob(jobName) {
     description "Build ${jobName}"
     disabled(project.disabled)
-    parameters pipelineJobParametersDefault << pipelineJobParametersBuild << pipelineJobParametersCustom
 
     authorization {
       project.permissions.each {
