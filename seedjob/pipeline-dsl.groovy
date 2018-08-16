@@ -55,7 +55,6 @@ def isLocalFilePath(path) {
 }
 
 def getJobName(project) {
-  print "\n\nProjects:\n\n${projects}\n\n"
 //  if (isLocalFilePath(project.localPathOverride)) {
 //    return project.localPathOverride.split('/').last()
 //  }
