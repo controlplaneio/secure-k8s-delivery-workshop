@@ -4,7 +4,7 @@ env = System.getenv()
 
 def projects = [
   [
-    domain              : "git@github.com",
+    domain              : "github.com",
     org                 : "YOUR-ACCOUNT-HERE",// change this to your github account
     name                : "demo-api",         // git repo name
     jobName             : "hello-world",      // jenkins job name
@@ -70,7 +70,7 @@ def getRepoUrl(project) {
   if (project.url) {
     return project.url
   }
-  return "${project.domain}:${project.org}/${project.name}"
+  return "https://${project.domain}/${project.org}/${project.name}.git"
 }
 
 // ---
@@ -216,7 +216,6 @@ projects.each { project ->
     git {
       remote {
         url getRepoUrl(project)
-        credentials("dp-acs-platforms-srv")
       }
       branch(getBranch(project))
 
