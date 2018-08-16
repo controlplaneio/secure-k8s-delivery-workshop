@@ -10,7 +10,7 @@ def projects = [
     jobName             : "hello-world",      // jenkins job name
     branch              : "master",
     jenkinsfile         : "Jenkinsfile",
-    pollTrigger         : "H * * * *",
+    pollTrigger         : "H/5 * * * *",
     cronTrigger         : "",
     depth               : 1,
     environmentWhitelist: [],
