@@ -70,7 +70,7 @@ def getRepoUrl(project) {
   if (project.url) {
     return project.url
   }
-  return "https://${project.domain}/${project.org}/${project.name}.git"
+  return "ssh://git@${project.domain}/${project.org}/${project.name}.git"
 }
 
 // ---
